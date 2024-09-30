@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>random password</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+          <div class="card">
+           <input type="text" class="show_password"><br>
+           
+           <button onclick="random_password()" class="btn">create password</button>
+          </div>
+           
+    </div>
+
+   <script>
+      let show_password = document.querySelector(".show_password")
+      function random_password(){
+       let str="azertyuiopqsdfghjklmwxcvbn&é(-è_çà)=*$ù^!:;,}]@\`|[#~?./µ%£+0987654321AZERTYUIOPQSDFGHJKLM<WXCVBN>" ;
+       let array_str = str.split("")
+       let password="";
+       array_str.forEach(item => {    
+        if(password.length >= 12){
+            show_password.value=password 
+            return
+        }
+        let index=Math.floor(Math.random() * (str.length - 12) + 1 ) ;
+         password+= array_str.splice(index,1)
+       });
+      
+      }
+     
+
+   </script>
+
+</body>
+</html>
